@@ -1,6 +1,6 @@
 # dncs_http3test
 ## Team
-Team members are Baccichet Giovanni (202869) and Parpinello Davide (201494).
+Team members are Luigi Dorigatti and Giacomo Fedrigo
 
 ## Project
 The goal of the project is to build a virtualized framework for analyzing the performance of HTTP/3 + QUIC, with respect to HTTP/2 or TCP.
