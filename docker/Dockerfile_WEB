@@ -6,8 +6,8 @@ RUN apt-get update && \
     apt-get install -y curl git libpcre3 libpcre3-dev zlib1g zlib1g-dev cargo golang-go build-essential cmake wget zip;
 
 RUN curl -O https://nginx.org/download/nginx-1.16.1.tar.gz && \
-    wget -O PE-index.zip https://github.com/GiovanniBaccichet/DNCS-HTTP3/blob/main/media/PE-index.zip\?raw\=true && \
-    unzip PE-index.zip && \
+    wget -O webHttp3.zip https://github.com/luigidoricats/DNCS-HTTP3/blob/main/media/webHttp3.zip\?raw\=true && \
+    unzip webHttp3.zip && \
     tar xvzf nginx-1.16.1.tar.gz && \
     git clone --recursive https://github.com/cloudflare/quiche && \
     cd nginx-1.16.1 && \
