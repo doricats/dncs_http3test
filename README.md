@@ -1,14 +1,14 @@
 # dncs_http3test
 ## Team
-Team members are Luigi Dorigatti and Giacomo Fedrigo
+I membri del team sono Luigi Dorigatti e Giacomo Fedrigo
 
 ## Project
-The goal of the project is to build a virtualized framework for analyzing the performance of HTTP/3 + QUIC, with respect to HTTP/2 or TCP.
+L'obiettivo del progetto è quello di costruire un framework virtualizzato per analizzare le prestazioni di HTTP/3 + QUIC, rispetto a HTTP/2 o TCP.
 
-Suggested software: Vagrant, OpenVSwitch, docker, or alternatively mininet+docker (Comnetsemu) Reference software: https://blog.cloudflare.com/experiment-with-http-3-using-nginx-and-quiche/
+Software suggerito: Vagrant, OpenVSwitch, docker, o in alternativa mininet+docker (Comnetsemu) Software di riferimento: https://blog.cloudflare.com/experiment-with-http-3-using-nginx-and-quiche/
 
 ## Lab Environment 🌍
-In order to be as unbiased as possibile, and also to make the performance evaluation replicable by everyone, it is necessary a virtualized lab. More specifically, in the implementation chosen, two softwares are used to set up the environment: Docker and Vagrant. In order to replicate a realistic scenario, the setup will be the following: one host, used as a client is connected directly to the only router of the lab. Than there are 2 hosts used as servers and belonging to the same subnet (different from the client one) connected to a switch and so to the router. The fist host will be named client, and on top of it will run the software needed for the performance evaluation (that will be discussed in a dedicated section). On the other hand, the second host will be called web-server and will run 3 different Docker containers and similarly the last one will be called video-server and it will run the remaining 3 containers.
+Per essere il più imparziale possibile, e anche per rendere la valutazione delle prestazioni replicabile da tutti, è necessario un laboratorio virtualizzato. Più specificamente, nell'implementazione scelta, vengono utilizzati due software per impostare l'ambiente: Docker e Vagrant. Per replicare uno scenario realistico, il setup sarà il seguente: un host, usato come client è collegato direttamente all'unico router del laboratorio. Poi ci sono 2 host usati come server e appartenenti alla stessa subnet (diversa da quella del client) collegati ad uno switch e quindi al router. Il primo host sarà chiamato client, e sopra di esso verrà eseguito il software necessario per la valutazione delle prestazioni (che sarà discusso in una sezione dedicata). D'altra parte, il secondo host sarà chiamato web-server ed eseguirà 3 diversi contenitori Docker e allo stesso modo l'ultimo sarà chiamato video-server ed eseguirà i restanti 3 contenitori.
 
 
 ## Lab Configuration
