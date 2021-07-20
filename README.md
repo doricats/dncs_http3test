@@ -21,6 +21,17 @@ Video streaming	HTTP/3 + QUIC	192.168.2.3	80, 443
 
 Per quanto riguarda gli indirizzi IP assegnati da Vagrant ai diversi host, sono i seguenti: router::eth1 è 192.168.1.1, router::eth2 è 192.168.2.1, client::eth1 è 192.168.1.2 e web-server::eth1 è 192.168.2.2 e video-server::eth1 è 192.168.2.3.
 
+## Vagrant Configuration
+
+Come mostrato in precedenza, Vagrant è usato per gestire la VM e il lato di rete dell'ambiente Lab. L'immagine utilizzata per il sistema operativo è ubuntu/bionic64. Alcune cose devono essere sottolineate: il server X11 viene inoltrato al fine di utilizzare strumenti di valutazione delle prestazioni e browser dal client (sarà necessario che la macchina host esegua un X-server, come XQuartz per macOS). Questo si ottiene aggiungendo nel Vagrantfile le seguenti linee:
+
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+  
+  
+Inoltre, sia il client che il server hanno 1024 MB di RAM per essere in grado di eseguire Google Chrome (il primo) e ffmpeg (l'ultimo). Tutti gli script di provisioning sono nella cartella vagrant e sono usati principalmente per il routing e l'installazione del software di base. Lo script di provisioning responsabile per il deployment di Docker (docker_run.sh) è anch'esso contenuto nella stessa cartella degli altri, ma sarà discusso più avanti. Ultimo ma non meno importante, è importante sapere che le immagini docker non saranno compilate ad ogni vagrant up, ma invece scaricate dal Docker Hub (che le costruisce automaticamente ogni volta che qualcosa viene commesso in questo repository), al fine di risparmiare tempo.
+
+## Docker Configuration
 
 
 ### Results
