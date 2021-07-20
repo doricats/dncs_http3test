@@ -23,15 +23,21 @@ Video streaming	HTTP/3 + QUIC	192.168.2.3	80, 443
 
 ## Vagrant Configuration
 
-Come mostrato in precedenza, Vagrant è usato per gestire la VM e il lato di rete dell'ambiente Lab. L'immagine utilizzata per il sistema operativo è ubuntu/bionic64. Il server X11 viene inoltrato al fine di utilizzare strumenti di valutazione delle prestazioni e browser dal client (sarà necessario che la macchina host esegua un X-server, come XQuartz per macOS). Questo si ottiene aggiungendo nel Vagrantfile le seguenti linee:
+Come mostrato in precedenza, Vagrant è usato per gestire la VM e il lato di rete dell'ambiente Lab. L'immagine utilizzata per il sistema operativo è ubuntu/bionic64. Il server X11 viene inoltrato al fine di utilizzare strumenti di valutazione delle prestazioni e browser dal client tramite X-server. Questo si ottiene aggiungendo nel Vagrantfile le seguenti linee:
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
   
-Inoltre, sia il client che il server hanno 1024 MB di RAM per essere in grado di eseguire Google Chrome e ffmpeg . Tutti gli script di provisioning sono nella cartella vagrant e sono usati principalmente per il routing e l'installazione del software di base. Lo script di provisioning responsabile per il deployment di Docker (docker_run.sh) è anch'esso contenuto nella stessa cartella degli altri, ma sarà discusso più avanti. Ultimo ma non meno importante, è importante sapere che le immagini docker non saranno compilate ad ogni vagrant up, ma invece scaricate dal Docker Hub (che le costruisce automaticamente ogni volta che qualcosa viene commesso in questo repository), al fine di risparmiare tempo.
+Inoltre, sia il client che il server hanno 1024 MB di RAM per essere in grado di eseguire Google Chrome e ffmpeg . Tutti gli script di provisioning sono nella cartella vagrant e sono usati principalmente per il routing e l'installazione del software di base. Lo script di provisioning responsabile per il deployment di Docker (docker_run.sh) è anch'esso contenuto nella stessa cartella degli altri, ma sarà discusso più avanti. Ultimo ma non meno importante, è importante sapere che le immagini docker non saranno compilate ad ogni vagrant up, ma invece scaricate dal Docker Hub.
 
 ## Docker Configuration
-L'approccio scelto è stato quello di costruire 2 diverse immagini Docker, distribuendo 6 contenitori: il primo serve allo scopo di eseguire un web-server, mentre l'ultimo è utilizzato per lo streaming video HLS. L'immagine per lo streaming video è una mod di quella per il web-server e sono entrambe basate sul server NGINX, più precisamente NGINX 1.16.1 (questa particolare versione è necessaria per eseguire la quiche-patch). Infatti entrambe le immagini sono preconfigurate come HTTP/3, ma saranno limitate nel file di configurazione nginx.conf per funzionare su TCP, HTTP/2 e HTTP/3+QUIC come richiesto (al fine di completare la valutazione delle prestazioni).
+L'approccio scelto è stato quello di costruire 2 diverse immagini Docker, distribuendo 6 contenitori: il primo serve allo scopo di eseguire un web-server, mentre l'ultimo è utilizzato per lo streaming video HLS. L'immagine per lo streaming video è una mod di quella per il web-server e sono entrambe basate sul server NGINX, più precisamente NGINX 1.16.1 . Infatti entrambe le immagini sono preconfigurate come HTTP/3, ma saranno limitate nel file di configurazione nginx.conf per funzionare su TCP, HTTP/2 e HTTP/3+QUIC .
+
+## Deployment
+Per l'avvio, è necessario lanciare l'ambiente di laboratorio discusso in precedenza con il comando vagrant up. Le ultime immagini Docker compilate saranno scaricate dal Docker Hub e distribuite automaticamente.
+
+Alcune note vanno fatte: per cambiare la configurazione delle porte utilizzate e i certificati SSL/TLS necessari, a seconda del metodo di distribuzione scelto, bisogna modificare docker/docker_deploy.sh o vagrant/docker_run.sh. Tutte le porte sono parametrizzate (tranne quelle HTTP/3, perché altrimenti non funzionerebbe), quindi la configurazione è abbastanza semplice:
+
 
 ### Results
 https://hub.docker.com/r/luigidoricats
