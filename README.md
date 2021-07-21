@@ -7,7 +7,7 @@ L'obiettivo del progetto è quello di costruire un framework virtualizzato con l
 
 Software suggerito: Vagrant, OpenVSwitch, docker, o in alternativa mininet+docker (Comnetsemu) Software di riferimento: https://blog.cloudflare.com/experiment-with-http-3-using-nginx-and-quiche/
 
-## Lab Configuration
+## Pre configurazione
 Per compiere una valutazione delle prestazioni oggettiva e precisa, è necessario un laboratorio virtualizzato. Ovvero, nell'implementazione scelta, vengono utilizzati due software per impostare l'ambiente: Docker e Vagrant. Per replicare uno scenario realistico, il setup sarà il seguente:  ci sono 2 host usati come server e appartenenti alla stessa subnet (diversa da quella del client) collegati ad uno switch e quindi al router.Poi un host, usato come client è collegato direttamente all'unico router del laboratorio.  Il primo host sarà chiamato client, e sopra di esso verrà eseguito il software necessario per la valutazione delle prestazioni. D'altra parte, il secondo host sarà chiamato web-server ed eseguirà 3 diversi contenitori Docker e allo stesso modo l'ultimo sarà chiamato video-server ed eseguirà i restanti 3 contenitori.
 Affinché la valutazione delle prestazioni sia realistica, dovrebbe includere sia i contenuti statici delle pagine web che lo streaming video,scelto come esempio principale. Da qui la necessità di 6 diversi contenitori Docker: (3 protocolli da testare) X (2 tipi di media). I contenitori potrebbero girare sullo stesso host, ma per far funzionare il contenitore HTTP/3+QUIC ha bisogno di usare le porte 80 e 443, e dato che ce ne sono 2, sarebbe un problema. Per questo motivo specifico i contenitori sono divisi in 2 host diversi per il web e per il video.
 
