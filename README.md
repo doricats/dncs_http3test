@@ -50,7 +50,7 @@ L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trova
 
 Ci siamo avvalsi del comando httpstat per l'estrazione dei dati necessari ed una visualizzazione chiara e comprensiva dei risultati. 
 
-# HTTP/3 + QUIC web page:
+### HTTP/3 + QUIC web page:
 ```console
 vagrant@client:~$ httpstat https://web.doricats.dev:443
 Connected to 192.168.2.2:443 from 192.168.1.2:60864
@@ -75,7 +75,7 @@ Body stored in: /tmp/tmp1G1tZP
                                                                                  total:33ms
    
 ```
-# HTTP/2 + SSL web page:
+### HTTP/2 + SSL web page:
 ```console
 vagrant@client:~$ httpstat https://web.doricats.dev:451
 Connected to 192.168.2.2:451 from 192.168.1.2:43398
@@ -99,7 +99,7 @@ Body stored in: /tmp/tmp7A0ND6
                                                                                  total:28ms
 
 ```
-# TCP + SSL web page:
+### TCP + SSL web page:
 ```console
 vagrant@client:~$ httpstat https://web.doricats.dev:452
 Connected to 192.168.2.2:452 from 192.168.1.2:32988
