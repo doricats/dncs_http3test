@@ -46,7 +46,7 @@ Il protocollo di streaming scelto è stato HLS per la sua grande diffusione e pe
 L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trovato nella cartella docker. La distro Linux utilizzata come sottosistema è Ubuntu. Dopo aver installato tutte le dipendenze e NGINX, quest'ultimo viene patchato utilizzando la patch quiche di Cloudflare. Come riportato in precedenza, l'immagine di base è capace di HTTP/3, ma il web-server può funzionare su TCP, HTTP/2 o HTTP/3 come richiesto, utilizzando il file di configurazione, passato dall'opzione -v in Docker.
 
 
-### Results
+## Results
 
 Ci siamo avvalsi del comando httpstat per l'estrazione dei dati necessari ed una visualizzazione chiara e comprensiva dei risultati. 
 
