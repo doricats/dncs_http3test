@@ -132,9 +132,14 @@ Body stored in: /tmp/tmphG9UJe
 | HTTP/2        | 3.5 MB      | 3.21 msec | 961 msec  | 30         | 1                 |
 | TCP           | 3.5 MB      | 2.16 msec | 899 msec  | 30         | 6                 |
 
-#Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/
+
+#Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/ per lo streaming dei contenuti video.
 | Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
 | ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
 | HTTP/3 + QUIC | 7.3 MB      | 5.51 msec | 3.33 sec  | 134        | 0                 |
 | HTTP/2        | 7.3 MB      | 5.63 msec | 2.99 sec  | 123        | 1                 |
 | TCP           | 7.3 MB      | 4.64 msec | 2.92 sec  | 120        | 6                 |
+
+
+### Conclusions
+#Dai risultati ottenuti nello streaming del video e nel caricamento dell pagina web, si evince chiaramente che HTTP/3 è più lento di HTTP/2.
