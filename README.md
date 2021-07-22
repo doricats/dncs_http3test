@@ -72,3 +72,53 @@ Body stored in: /tmp/tmp1G1tZP
    
 ```
 
+
+
+```console
+vagrant@client:~$ httpstat https://web.bacci.dev:451
+Connected to 192.168.2.2:451 from 192.168.1.2:43398
+
+HTTP/2 200
+server: nginx/1.16.1
+content-type: text/html
+content-length: 106200
+etag: "60251560-19ed8"
+accept-ranges: bytes
+
+Body stored in: /tmp/tmp7A0ND6
+
+  DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
+[     4ms    |       1ms      |     14ms      |        3ms        |        6ms       ]
+             |                |               |                   |                  |
+    namelookup:4ms            |               |                   |                  |
+                        connect:5ms           |                   |                  |
+                                    pretransfer:19ms              |                  |
+                                                      starttransfer:22ms             |
+                                                                                 total:28ms
+
+```
+
+```console
+vagrant@client:~$ httpstat https://web.bacci.dev:452
+Connected to 192.168.2.2:452 from 192.168.1.2:32988
+
+HTTP/1.1 200 OK
+Server: nginx/1.16.1
+Content-Type: text/html
+Content-Length: 106200
+Connection: keep-alive
+ETag: "60251560-19ed8"
+Accept-Ranges: bytes
+
+Body stored in: /tmp/tmphG9UJe
+
+  DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
+[     4ms    |       2ms      |     14ms      |        3ms        |        3ms       ]
+             |                |               |                   |                  |
+    namelookup:4ms            |               |                   |                  |
+                        connect:6ms           |                   |                  |
+                                    pretransfer:20ms              |                  |
+                                                      starttransfer:23ms             |
+                                                                                 total:26ms
+
+```
