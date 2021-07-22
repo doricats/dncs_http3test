@@ -125,14 +125,14 @@ Body stored in: /tmp/tmphG9UJe
 
 ```
 
-
+#Un riassunto dei dati raccolti con l'uso del comando httpstat.
 | Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
 | ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
 | HTTP/3 + QUIC | 3.5 MB      | 2.83 msec | 1.08 sec  | 30         | 0                 |
 | HTTP/2        | 3.5 MB      | 3.21 msec | 961 msec  | 30         | 1                 |
 | TCP           | 3.5 MB      | 2.16 msec | 899 msec  | 30         | 6                 |
 
-
+#Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/
 | Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
 | ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
 | HTTP/3 + QUIC | 7.3 MB      | 5.51 msec | 3.33 sec  | 134        | 0                 |
