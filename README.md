@@ -47,9 +47,7 @@ L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trova
 
 
 ### Results
----
-**NOTE**
-
+```console
 vagrant@client:~$ httpstat https://web.bacci.dev:443
 Connected to 192.168.2.2:443 from 192.168.1.2:60864
 
@@ -71,6 +69,6 @@ Body stored in: /tmp/tmp1G1tZP
                                     pretransfer:23ms              |                  |
                                                       starttransfer:25ms             |
                                                                                  total:33ms
-                                                                      
----         
+   
+```
 
