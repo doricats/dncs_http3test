@@ -75,7 +75,7 @@ Body stored in: /tmp/tmp1G1tZP
 
 
 ```console
-vagrant@client:~$ httpstat https://web.bacci.dev:451
+vagrant@client:~$ httpstat https://web.doricats.dev:451
 Connected to 192.168.2.2:451 from 192.168.1.2:43398
 
 HTTP/2 200
@@ -99,7 +99,7 @@ Body stored in: /tmp/tmp7A0ND6
 ```
 
 ```console
-vagrant@client:~$ httpstat https://web.bacci.dev:452
+vagrant@client:~$ httpstat https://web.doricats.dev:452
 Connected to 192.168.2.2:452 from 192.168.1.2:32988
 
 HTTP/1.1 200 OK
