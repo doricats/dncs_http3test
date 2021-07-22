@@ -48,6 +48,8 @@ L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trova
 
 ### Results
 
+Ci siamo avvalsi del comando httpstat per l'estrazione dei dati necessari ed una visualizzazione chiara e comprensiva dei risultati. 
+
 ##HTTP/3 + QUIC web page:
 ```console
 vagrant@client:~$ httpstat https://web.doricats.dev:443
@@ -122,3 +124,17 @@ Body stored in: /tmp/tmphG9UJe
                                                                                  total:26ms
 
 ```
+
+
+| Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
+| ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
+| HTTP/3 + QUIC | 3.5 MB      | 2.83 msec | 1.08 sec  | 30         | 0                 |
+| HTTP/2        | 3.5 MB      | 3.21 msec | 961 msec  | 30         | 1                 |
+| TCP           | 3.5 MB      | 2.16 msec | 899 msec  | 30         | 6                 |
+
+
+| Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
+| ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
+| HTTP/3 + QUIC | 7.3 MB      | 5.51 msec | 3.33 sec  | 134        | 0                 |
+| HTTP/2        | 7.3 MB      | 5.63 msec | 2.99 sec  | 123        | 1                 |
+| TCP           | 7.3 MB      | 4.64 msec | 2.92 sec  | 120        | 6                 |
