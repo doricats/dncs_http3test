@@ -31,7 +31,7 @@ Come mostrato in precedenza, Vagrant è usato per gestire la VM e il lato di ret
 Inoltre, sia il client che il server hanno 1024 MB di RAM per essere in grado di eseguire Google Chrome e ffmpeg . Tutti gli script di provisioning sono nella cartella vagrant e sono usati principalmente per il routing e l'installazione del software di base. Lo script di provisioning responsabile per il deployment di Docker (docker_run.sh) è anch'esso contenuto nella stessa cartella degli altri, ma sarà discusso più avanti. Ultimo ma non meno importante, è importante sapere che le immagini docker non saranno compilate ad ogni vagrant up, ma invece scaricate dal Docker Hub.
 
 ## Docker
-L'approccio scelto è stato quello di costruire 2 diverse immagini Docker, distribuendo 6 contenitori: il primo serve allo scopo di eseguire un web-server, mentre l'ultimo è utilizzato per lo streaming video HLS. L'immagine per lo streaming video è una mod di quella per il web-server e sono entrambe basate sul server NGINX, più precisamente NGINX 1.16.1 . Infatti entrambe le immagini sono preconfigurate come HTTP/3, ma saranno limitate nel file di configurazione nginx.conf per funzionare su TCP, HTTP/2 e HTTP/3+QUIC .
+L'approccio scelto è stato quello di costruire 2 diverse immagini Docker, distribuendo 6 contenitori: il primo serve allo scopo di eseguire un web-server, mentre l'ultimo è utilizzato per lo streaming video HLS. L'immagine per lo streaming video è una mod di quella per il web-server e sono entrambe basate sul server NGINX, più precisamente NGINX 1.16.1 . Infatti entrambe le immagini sono preconfigurate come HTTP/3, ma saranno limitate nel file di configurazione nginx.conf per funzionare su TCP, HTTP/2 e HTTP/3+QUIC . Importante notare che le immagini non verranno compilate ogni volta che il comando vagrant up sarà eseguito, ma saranno invece scaricate direttamente dal nostro Docker Hub (https://hub.docker.com/r/luigidoricats).
 
 ## Sviluppo
 Per l'avvio, è necessario lanciare l'ambiente di laboratorio discusso in precedenza con il comando vagrant up. Le ultime immagini Docker compilate saranno scaricate dal Docker Hub e distribuite automaticamente.
@@ -47,4 +47,24 @@ L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trova
 
 
 ### Results
-https://hub.docker.com/r/luigidoricats
+vagrant@client:~$ httpstat https://web.doricats.dev:443
+Connected to 192.168.2.2:443 from 192.168.1.2:60864
+
+HTTP/2 200
+server: nginx/1.16.1
+content-type: text/html
+content-length: 106200
+etag: "60251560-19ed8"
+alt-svc: h3-27=":443"; ma=86400
+accept-ranges: bytes
+
+Body stored in: /tmp/tmp1G1tZP
+
+  DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
+[     4ms    |       2ms      |     17ms      |        2ms        |        8ms       ]
+             |                |               |                   |                  |
+    namelookup:4ms            |               |                   |                  |
+                        connect:6ms           |                   |                  |
+                                    pretransfer:23ms              |                  |
+                                                      starttransfer:25ms             |
+                                                                                 total:33ms
