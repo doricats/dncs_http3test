@@ -142,4 +142,4 @@ Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/ per
 
 
 ## Conclusions
-#Dai risultati ottenuti nello streaming del video e nel caricamento dell pagina web, si evince chiaramente che HTTP/3 è più lento di HTTP/2.
+Dai risultati ottenuti nello streaming del video e nel caricamento dell pagina web, si evince chiaramente che HTTP/3 è più lento di HTTP/2.
