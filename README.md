@@ -126,19 +126,19 @@ Body stored in: /tmp/tmphG9UJe
 ```
 
 Un riassunto dei dati raccolti con l'uso del comando httpstat.
-| Protocol      | Page weight | DNS lookup| TCP connection | # server processing | # Content Transfer |
-| ------------- | ----------- | --------- | ---------      | ----------          | ----------------- |
-| HTTP/3 + QUIC | 3.5 MB      | 2 msec    | 17 sec         |        2            |         8         |
-| HTTP/2        | 3.5 MB      | 1 msec    | 14 msec        |        3            |         6         |
-| TCP           | 3.5 MB      | 2 msec    | 14 msec        |        3            |         3         |
+| Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
+| ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
+| HTTP/3 + QUIC | 9.96 MB      | 5.51 msec | 3.96 sec  | 140        | 0                 |
+| HTTP/2        | 9.96 MB      | 5.63 msec | 2.57 sec  | 129        | 1                 |
+| TCP           | 9.96 MB      | 4.64 msec | 2.49 sec  | 125        | 6                 |
 
 
 Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/ e https://demo.theoplayer.com/test-your-stream-with-statistics per lo streaming dei contenuti video.
-| Protocol      | Page weight | TTFB      | Load time | # requests | # tcp connections |
-| ------------- | ----------- | --------- | --------- | ---------- | ----------------- |
-| HTTP/3 + QUIC | 7.3 MB      | 5.51 msec | 3.33 sec  | 134        | 0                 |
-| HTTP/2        | 7.3 MB      | 5.63 msec | 2.99 sec  | 123        | 1                 |
-| TCP           | 7.3 MB      | 4.64 msec | 2.92 sec  | 120        | 6                 |
+|  Protocol Startup | time      | Avg latency | Avg bitrate | Dropped Frames |
+|-------------------|-----------|-------------|-------------|----------------|
+| HTTP/3 + QUIC     | 1356 msec | 48,35 msec  | 64,17 MB/s  | 352            |
+| HTTP/2            | 1094 msec | 28,32 msec  | 139,57 MB/s | 302            |
+| TCP               | 876 msec  | 25,78 msec  | 57,44 MB/s  | 705            |
 
 
 ## Conclusions
