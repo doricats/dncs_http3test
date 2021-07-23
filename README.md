@@ -128,9 +128,9 @@ Body stored in: /tmp/tmphG9UJe
 Un riassunto dei dati raccolti con l'uso del comando httpstat.
 | Protocol      | Page weight | DNS lookup| TCP connection | # server processing | # Content Transfer |
 | ------------- | ----------- | --------- | ---------      | ----------          | ----------------- |
-| HTTP/3 + QUIC | 3.5 MB      | 2.83 msec | 1.08 sec       | 30                  | 0                 |
-| HTTP/2        | 3.5 MB      | 3.21 msec | 961 msec       | 30                  | 1                 |
-| TCP           | 3.5 MB      | 2.16 msec | 899 msec       | 30                  | 6                 |
+| HTTP/3 + QUIC | 3.5 MB      | 2 msec    | 17 sec         | 2                   | 8                 |
+| HTTP/2        | 3.5 MB      | 1 msec    | 14 msec        | 3                   | 6                 |
+| TCP           | 3.5 MB      | 2 msec    | 14 msec        | 3                   | 3                 |
 
 
 Un riassunto dei dati raccolti con l'uso di https://hls-js.netlify.app/demo/ e https://demo.theoplayer.com/test-your-stream-with-statistics per lo streaming dei contenuti video.
