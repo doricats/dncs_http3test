@@ -58,7 +58,7 @@ Connected to 192.168.2.2:443 from 192.168.1.2:60864
 HTTP/2 200
 server: nginx/1.16.1
 content-type: text/html
-content-length: 106200
+content-length: 84200
 etag: "60251560-19ed8"
 alt-svc: h3-27=":443"; ma=86400
 accept-ranges: bytes
@@ -83,7 +83,7 @@ Connected to 192.168.2.2:451 from 192.168.1.2:43398
 HTTP/2 200
 server: nginx/1.16.1
 content-type: text/html
-content-length: 106200
+content-length: 84200
 etag: "60251560-19ed8"
 accept-ranges: bytes
 
@@ -107,7 +107,7 @@ Connected to 192.168.2.2:452 from 192.168.1.2:32988
 HTTP/1.1 200 OK
 Server: nginx/1.16.1
 Content-Type: text/html
-Content-Length: 106200
+Content-Length: 84200
 Connection: keep-alive
 ETag: "60251560-19ed8"
 Accept-Ranges: bytes
