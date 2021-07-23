@@ -66,13 +66,13 @@ accept-ranges: bytes
 Body stored in: /tmp/tmp1G1tZP
 
   DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
-[     4ms    |       2ms      |     17ms      |        2ms        |        8ms       ]
+[     4ms    |       2ms      |     17ms      |        2ms        |        9ms       ]
              |                |               |                   |                  |
     namelookup:4ms            |               |                   |                  |
                         connect:6ms           |                   |                  |
                                     pretransfer:23ms              |                  |
                                                       starttransfer:25ms             |
-                                                                                 total:33ms
+                                                                                 total:34ms
    
 ```
 ### HTTP/2 + SSL web page:
@@ -90,13 +90,13 @@ accept-ranges: bytes
 Body stored in: /tmp/tmp7A0ND6
 
   DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
-[     4ms    |       1ms      |     14ms      |        3ms        |        6ms       ]
+[     4ms    |       1ms      |     14ms      |        3ms        |        7ms       ]
              |                |               |                   |                  |
     namelookup:4ms            |               |                   |                  |
                         connect:5ms           |                   |                  |
                                     pretransfer:19ms              |                  |
                                                       starttransfer:22ms             |
-                                                                                 total:28ms
+                                                                                 total:29ms
 
 ```
 ### TCP + SSL web page:
@@ -115,13 +115,13 @@ Accept-Ranges: bytes
 Body stored in: /tmp/tmphG9UJe
 
   DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
-[     4ms    |       2ms      |     14ms      |        3ms        |        3ms       ]
+[     4ms    |       2ms      |     14ms      |        3ms        |        4ms       ]
              |                |               |                   |                  |
     namelookup:4ms            |               |                   |                  |
                         connect:6ms           |                   |                  |
                                     pretransfer:20ms              |                  |
                                                       starttransfer:23ms             |
-                                                                                 total:26ms
+                                                                                 total:27ms
 
 ```
 
