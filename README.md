@@ -43,7 +43,7 @@ Alcune note vanno fatte: per cambiare la configurazione delle porte utilizzate e
 Il protocollo di streaming scelto è stato HLS per la sua grande diffusione e per le sue prestazioni.  HLS può riprodurre video codificati con i codec H.264 o HEVC/H.265. L'immagine Docker per lo streaming video è solo una mod di quella creata nella sezione precedente. L'unica differenza è un plugin RTMP per NGINX e l'installazione di ffmpeg (usato per codificare il file video e metterlo in loop, simulando uno streaming live)
 
 ## Pagina web
-L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trovato nella cartella docker. La distro Linux utilizzata come sottosistema è Ubuntu. Dopo aver installato tutte le dipendenze e NGINX, quest'ultimo viene patchato utilizzando la patch quiche di Cloudflare. Come riportato in precedenza, l'immagine di base è capace di HTTP/3, ma il web-server può funzionare su TCP, HTTP/2 o HTTP/3 come richiesto, utilizzando il file di configurazione, passato dall'opzione -v in Docker.
+L'immagine del web-server è costruita dal Dockerfile_TEXT che può essere trovato nella cartella docker. La distro Linux utilizzata come sottosistema è Ubuntu. Dopo aver installato tutte le dipendenze e NGINX, quest'ultimo viene patchato utilizzando la patch quiche di Cloudflare. https://github.com/cloudflare/quiche . Come riportato in precedenza, l'immagine di base è capace di HTTP/3, ma il web-server può funzionare su TCP, HTTP/2 o HTTP/3 come richiesto, utilizzando il file di configurazione, passato dall'opzione -v in Docker.
 
 
 ## Results
